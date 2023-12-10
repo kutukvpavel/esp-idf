@@ -525,7 +525,7 @@ inline static void IRAM_ATTR misc_modules_sleep_prepare(bool deep_sleep)
     }
 
     // TODO: IDF-7370
-    if (!(deep_sleep && s_adc_tsen_enabled)){
+    if (deep_sleep && !s_adc_tsen_enabled){ //PATCHED
         sar_periph_ctrl_power_disable();
     }
 }
